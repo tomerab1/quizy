@@ -2,7 +2,7 @@ import { SearchResult } from "../../models/search/search-result";
 
 const difficutlyToColor: Record<string, string> = {
   easy: "bg-green-400",
-  medium: "bg-yellow-400",
+  medium: "bg-orange-400",
   hard: "bg-red-400",
 };
 
@@ -11,10 +11,10 @@ export default function SearchResultCard({
   description,
   tags,
   difficulty,
-  imageUrl,
+  //   imageUrl,
 }: SearchResult) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col hover:cursor-pointer">
       <div className="flex items-center justify-between">
         <h3 className="mb-2 inline text-lg font-bold text-stone-100">
           {title}
