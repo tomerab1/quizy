@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import NavBarItem from "./NavBarItem";
 import Title from "./Title";
-import NavBarItems from "./NavBarItems";
 import DropDownMenu from "../menu/DropDownMenu";
+import SearchBar from "../search/SearchBar";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -30,12 +29,8 @@ export default function NavBar() {
 
   return (
     <nav className="sticky top-0 flex h-16 items-center bg-stone-800/20 px-4 opacity-95 shadow-custom backdrop-blur-sm">
-      <Title title="Trivia Game" emoji="🤔" />
-      <NavBarItems className="ml-auto">
-        <NavBarItem className="mr-5 font-sans font-bold text-stone-100 hover:text-stone-400">
-          <span>Home</span>
-        </NavBarItem>
-      </NavBarItems>
+      <Title title="Quizy" emoji="🤔" />
+      <SearchBar className="relative m-auto flex items-center" />
 
       <DropDownMenu
         isOpen={isMenuOpen}

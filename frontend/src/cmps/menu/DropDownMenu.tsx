@@ -44,7 +44,7 @@ export default function DropDownMenu({
           className={`absolute right-0 mr-5 mt-1 w-48 rounded-md bg-stone-600 py-1 shadow-lg ${isOpen ? "opacity-85" : ""}`}
         >
           {items.map((item) => (
-            <MenuItem className="mx-2 border-b border-stone-500 pb-2 pl-3 pt-2 text-stone-100 last:border-0 hover:cursor-pointer hover:text-stone-400">
+            <MenuItem className="mx-2 border-b border-stone-500 pb-5 pl-3 pt-2 font-sans text-stone-100 last:border-0 hover:cursor-pointer hover:text-stone-300">
               <a href={item.href || "#"}>{item.label}</a>
             </MenuItem>
           ))}
