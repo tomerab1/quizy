@@ -42,12 +42,16 @@ export default function NavBar({
         className={`${isMenuOpen ? "translate-x-44 transition-all duration-300" : ""}`}
       />
 
-      <SearchBar
-        onChange={onKeyDown}
-        onSearch={onSearch}
-        onSubmit={onSubmit}
-        className="relative m-auto flex items-center opacity-100"
-      />
+      <div
+        className={`flex flex-1 justify-center ${isMenuOpen ? "ml-60 transition-all duration-300" : ""}`}
+      >
+        <SearchBar
+          onChange={onKeyDown}
+          onSearch={onSearch}
+          onSubmit={onSubmit}
+          className="relative flex w-full max-w-lg items-center"
+        />
+      </div>
     </nav>
   );
 }
