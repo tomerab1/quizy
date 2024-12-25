@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 interface MenuProps {
   children: React.ReactNode;
@@ -7,10 +7,6 @@ interface MenuProps {
 }
 
 export default function Menu({ children, className, menuRef }: MenuProps) {
-  useEffect(() => {
-    console.log(menuRef);
-  }, []);
-
   return (
     <div ref={menuRef} className={className || ""}>
       {children}

@@ -1,11 +1,14 @@
 interface TitleProp {
   title: string;
   emoji?: string;
+  className?: string;
 }
 
-export default function Title({ title, emoji }: TitleProp) {
+export default function Title({ title, emoji, className }: TitleProp) {
   return (
-    <span className="flex items-center gap-2 font-sans text-xl font-bold tracking-wide text-stone-100">
+    <span
+      className={`ml-4 font-sans text-xl font-bold text-stone-100 ${className || ""}`}
+    >
       {title} {emoji || ""}
     </span>
   );

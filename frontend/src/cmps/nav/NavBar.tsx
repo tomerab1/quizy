@@ -1,31 +1,52 @@
-import React, { useEffect, useRef, useState } from "react";
 import Title from "./Title";
-import DropDownMenu from "../menu/DropDownMenu";
 import SearchBar from "../search/SearchBar";
+import DrawerMenu from "../menu/DrawerMenu";
+import { CgProfile } from "react-icons/cg";
+import { CiSettings } from "react-icons/ci";
+import { GoSignOut } from "react-icons/go";
 
 interface NavBarProps {
+  isMenuOpen: boolean;
+  menuRef: React.RefObject<HTMLDivElement>;
+  onOpenMenu: () => void;
   onKeyDown: (ev: React.ChangeEvent<HTMLInputElement>) => void;
   onSearch: () => void;
   onSubmit: (ev: React.SyntheticEvent<HTMLFormElement>) => void;
 }
 
-export default function NavBar({ onKeyDown, onSearch, onSubmit }: NavBarProps) {
+export default function NavBar({
+  onKeyDown,
+  onSearch,
+  onSubmit,
+  onOpenMenu,
+  isMenuOpen,
+  menuRef,
+}: NavBarProps) {
   return (
-    <nav className="sticky top-0 z-50 flex h-16 items-center bg-stone-800/20 px-4 opacity-95 shadow-custom backdrop-blur-sm">
-      <Title title="Quizy" />
+    <nav className="sticky top-0 z-[999] flex h-16 items-center bg-stone-800/20 px-4 shadow-custom backdrop-blur-sm">
+      <DrawerMenu
+        isMenuOpen={isMenuOpen}
+        onOpenMenu={onOpenMenu}
+        menuRef={menuRef}
+        items={[
+          {
+            label: "Profile",
+            icon: <CgProfile className="mr-2" />,
+          },
+          { label: "Settings", icon: <CiSettings className="mr-2" /> },
+          { label: "Sign-out", icon: <GoSignOut className="mr-2" /> },
+        ]}
+      />
+      <Title
+        title="Quizy"
+        className={`${isMenuOpen ? "translate-x-44 transition-all duration-300" : ""}`}
+      />
+
       <SearchBar
         onChange={onKeyDown}
         onSearch={onSearch}
         onSubmit={onSubmit}
-        className="relative m-auto flex items-center"
-      />
-
-      <DropDownMenu
-        items={[
-          { label: "Profile" },
-          { label: "Settings" },
-          { label: "Sign-out" },
-        ]}
+        className="relative m-auto flex items-center opacity-100"
       />
     </nav>
   );
