@@ -34,7 +34,7 @@ export default function NavBar({ onKeyDown, onSearch, onSubmit }: NavBarProps) {
   }, [isMenuOpen]);
 
   return (
-    <nav className="sticky top-0 flex h-16 items-center bg-stone-800/20 px-4 opacity-95 shadow-custom backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 flex h-16 items-center bg-stone-800/20 px-4 opacity-95 shadow-custom backdrop-blur-sm">
       <Title title="Quizy" />
       <SearchBar
         onChange={onKeyDown}
