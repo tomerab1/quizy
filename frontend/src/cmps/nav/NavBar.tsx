@@ -23,7 +23,9 @@ export default function NavBar({
   menuRef,
 }: NavBarProps) {
   return (
-    <nav className="sticky top-0 z-[999] flex h-16 items-center bg-stone-800/20 px-4 shadow-custom backdrop-blur-sm">
+    <nav
+      className={`sticky top-0 z-[999] flex h-16 items-center bg-stone-800/20 px-4 shadow-custom backdrop-blur-sm`}
+    >
       <DrawerMenu
         isMenuOpen={isMenuOpen}
         onOpenMenu={onOpenMenu}
@@ -39,11 +41,11 @@ export default function NavBar({
       />
       <Title
         title="Quizy"
-        className={`${isMenuOpen ? "translate-x-44 transition-all duration-300" : ""}`}
+        className={`${isMenuOpen ? "duration-300 sm:translate-x-0 sm:transition-none md:translate-x-44 md:transition-all" : ""}`}
       />
 
       <div
-        className={`flex flex-1 justify-center ${isMenuOpen ? "ml-60 transition-all duration-300" : ""}`}
+        className={`flex flex-1 justify-center ${isMenuOpen ? "duration-300 sm:ml-0 sm:transition-none md:ml-60 md:transition-all" : ""}`}
       >
         <SearchBar
           onChange={onKeyDown}

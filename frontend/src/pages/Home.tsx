@@ -57,7 +57,7 @@ export default function Home() {
       />
 
       <div
-        className={`${isMenuOpen ? "ml-60 blur-sm transition-all duration-300" : ""}`}
+        className={`${isMenuOpen ? "duration-300 sm:ml-0 sm:blur-none sm:transition-none md:ml-60 md:blur-sm md:transition-all" : ""}`}
       >
         {searchResults.length > 0 ? (
           <div className="flex flex-wrap justify-center gap-6 p-6">
